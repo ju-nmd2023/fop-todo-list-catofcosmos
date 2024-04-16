@@ -9,13 +9,33 @@
 
   </head>
   <body>
-    <header>
+  
+    <section class="main">
+      <header>
         <h1>To Do List</h1>
-    </header>
-    <div class="main">
-        <input type="text" placeholder="Type here..." id="textArea"></input>
-        <button>✅</button>
-    </div>
+     </header>
+        <div class="input">
+        <input id="textInput" class="text-input" type="text" placeholder="Add task here..." onclickbutton="checkbox"></input>
+        <button class="btn" id="addBtn">➕</button>  
 
+      </div>
+     
+      <h1>Tasks</h1>
+      <ul class="note-list">
+      <li id="taskList">      
+        <input id="checkbox" type="checkbox"></input>
+      </li>
+
+      </ul>
+      <hr class="counter" />
+            <div class="counter-container">
+        <p><span>0</span> tasks total</p>
+      </div>
+      <button class="btn" id="deleteBtn">Delete All Tasks🗑️</button>
+
+    </section>
+      <footer></footer>
+
+     
   </body>
 </html>

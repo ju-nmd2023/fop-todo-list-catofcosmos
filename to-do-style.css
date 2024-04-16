@@ -1,40 +1,95 @@
+/* :root {
+  --gradient:blue 
+
+} */
+
 html,
 body {
+  /* background: var(--gradient); experiment*/
   margin: 0px;
   font-family: Helvetica, Arial, sans-serif;
+  background-color: lightsteelblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
-    text-align: center;  
-    justify-items: center;
-    align-items: center;
-    width: 100%;
-    display: grid;
+  text-align: center;
+  justify-items: center;
+
+  width: 100%;
+  display: grid;
+}
+
+.main,
+.delete-note,
+.note-list {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 3fr, 1;
+  grid-column: 2;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.note-write-here {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-container {
+  display: flex;
+ gap: 10%;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+}
+
+
+  
+#taskList p{
+  color:blueviolet
 
 }
 
-.main {
-    display: grid;
-    grid-template-columns:3,1fr;
-    grid-column: 2;
-    justify-content: center;
-    align-items: center;
-    width:auto;
+.task-done{
+  text-decoration: line-through;
 }
 
-input {
-    display: flex;
-    justify-content: center;
+input[type="checkbox"]::before {
+  color: white;
 }
 
-button {
-    width: 35px;
-    display: inline-block;
-    
-     
+input[type="checkbox"]::before::after {
+  color: greenyellow;
 }
+
+#textInput {
+  flex-grow: 1;
+  margin-right: 5px;
+  color: rgb(129, 173, 211);
+}
+
+.btn {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border: none;
+  color:  black;
+  
+}
+
 .main > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
