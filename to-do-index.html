@@ -16,14 +16,14 @@
      </header>
         <div class="input">
         <input id="textInput" class="text-input" type="text" placeholder="Add task here..." onclickbutton="checkbox"></input>
-        <button class="btn" id="addBtn">➕</button>  
+        <button class="btn" id="addBtn" onclick="addTaskToNoteContainer()">➕</button>  
 
       </div>
      
       <h1>Tasks</h1>
       <ul class="note-list">
       <li id="taskList">      
-        <input id="checkbox" type="checkbox"></input>
+        <!-- <input id="checkbox" type="checkbox"></input> -->
       </li>
 
       </ul>
@@ -31,7 +31,7 @@
             <div class="counter-container">
         <p><span>0</span> tasks total</p>
       </div>
-      <button class="btn" id="deleteBtn">Delete All Tasks🗑️</button>
+      <button class="btn" id="deleteBtn" onclick="deleteTask()">Delete All Tasks🗑️</button>
 
     </section>
       <footer></footer>
