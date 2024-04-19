@@ -2,65 +2,59 @@
 
 let todo = JSON.parse(localStorage.getItem("todo")) || [];
 
-const textInputElement = document.getElementById("textInput");
-const taskListElement = document.getElementById("taskList");
-const addBtn = document.querySelector("addBtn");
+const todoContainer = document.getElementById("to-do-container");
+const textInput = document.getElementById("text-input");
+const taskList = document.getElementById("task-list");
+const addBtn = document.querySelector("#add-btn");
+const deleteBtn = document.querySelector("#delete-btn");
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   addBtn.addEventListener("click", addTaskToNoteContainer);
-// });
+// hackr.io
+todoContainer.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const newTask = textInput.value;
 
-function addTaskToNoteContainer() {
-  let inputText = textInputElement.value.trim();
-  console.log("Hello");
-  if (inputText !== "") {
-    let task = document.createElement("li");
-    task.classList.add("task");
-
-    let taskNode = document.createTextNode(inputText);
-
-    let checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.onclick = function () {
-      if (checkbox.checked) {
-        task.classList.add("task-done");
-      } else {
-        task.classList.remove("task-done");
-      }
-    };
-
-    task.appendChild(checkbox);
-    task.appendChild(taskNode);
-
-    taskListElement.appendChild(task);
-
-    inputElement.value = "";
+  if (newTask === "") {
+    alert("enter task");
+    return;
   }
+
+  // this clears the input field
+  textInput.value = "";
+  addTask(newTask);
+});
+
+function addTask(task) {
+  const listItem = document.createElement("li");
+  const taskText = document.createElement("span");
+  taskText.textContent = task;
+  listItem.appendChild(taskText);
+
+  const checkBox = document.createElement("input");
+  checkBox.setAttribute("type", "checkbox");
+  listItem.appendChild(checkBox);
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "X";
+  listItem.appendChild(deleteBtn);
+
+  taskList.appendChild(listItem);
+
+  addCheckbox(checkBox, taskText);
+  addDeleteBtn(deleteBtn, listItem);
 }
 
-  const deleteBtn = document.getElementById("deleteBtn");
-  deleteBtn.addEventListener();
-  function deleteTasks() {
-    while (taskListElement.firstChild)
-      taskListElement.removeChild(taskListElement.firstChild);
-  }
+function addCheckbox(checkBox, taskText) {
+  checkBox.addEventListener("change", function () {
+    if (this.checked) {
+      taskText.style.textDecoration = "line-through";
+    } else {
+      taskText.style.textDecoration = "none";
+    }
+  });
+}
 
-// function addTaskToNoteContainer() {
-//     console.log("Button clicked");
-//   const textInputValue = textInputElement.value.trim();
-//   console.log("Input value:", textInputValue);
-//   if (textInputValue !== "") {
-//     const noteElement = document.createElement("div");
-//     noteElement.textContent = textInputValue;
-//     noteContainerElement.appendChild(noteElement);
-//     textInputElement.value = "";
-//     console.log("input added to container");
-//   } else {
-//     console.log("input empty");
-//   }
-// }
-
-// function addTaskToNoteContainer() {
-//   noteContainerElement.appendChild(this);
-//   console.log("i was clicked");
-// }
+function addDeleteBtn(deleteBtn, listItem) {
+  deleteBtn.addEventListener("click", function () {
+    taskList.removeChild(listItem);
+  });
+}

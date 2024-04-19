@@ -14,24 +14,17 @@
       <header>
         <h1>To Do List</h1>
      </header>
-        <div class="input">
-        <input id="textInput" class="text-input" type="text" placeholder="Add task here..." onclickbutton="checkbox"></input>
-        <button class="btn" id="addBtn" onclick="addTaskToNoteContainer()">➕</button>  
-
-      </div>
+        <form id="to-do-container">
+          <input id="text-input" class="text-input-class" type="text" placeholder="Add task here..." onclickbutton="checkbox"></input>
+            <button id="add-btn" type="submit" >➕</button>  
+        </form>
      
       <h1>Tasks</h1>
-      <ul class="note-list">
-      <li id="taskList">      
-        <!-- <input id="checkbox" type="checkbox"></input> -->
-      </li>
-
+      <ul id="task-list">
+        
       </ul>
-      <hr class="counter" />
-            <div class="counter-container">
-        <p><span>0</span> tasks total</p>
-      </div>
-      <button class="btn" id="deleteBtn" onclick="deleteTask()">Delete All Tasks🗑️</button>
+    
+      
 
     </section>
       <footer></footer>

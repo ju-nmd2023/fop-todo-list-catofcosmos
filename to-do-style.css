@@ -28,38 +28,50 @@ header {
 .note-list {
   display: flex;
   flex-direction: column;
-  grid-template-columns: 3fr, 1;
+  grid-template-columns: 3fr 1fr;
   grid-column: 2;
   justify-content: center;
   align-items: center;
   width: auto;
 }
-
-.note-write-here {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* HACKR.IO */
+#to-do-container input [type="text"] {
+  width: 50%;
+  padding: 10px;
+  border: 4px solid;
+  border-radius: 4px;
+  margin-right: 10px;
 }
 
-.todo-container {
-  display: flex;
- gap: 10%;
+#to-do-container button {
+  color: white;
+  background-color: blue;
+  border: none;
+  padding: 8px 26px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
+
+#to-do-container button:hover {
+  background-color: aqua;
+}
+
+#task-list {
+  list-style: none;
+  color: blueviolet;
+  padding: 0;
+}
+/* End hackr.io */
 
 ul {
   padding: 0;
 }
 
-li {
+#task-list li {
   display: flex;
-  flex-direction: column;
-}
-
-
-  
-#taskList p{
-  color:blueviolet
-
+  justify-content: space-between;
+  align-items: center;
 }
 
 .task-done{
@@ -84,8 +96,7 @@ input[type="checkbox"]::before::after {
   color: rgb(255, 255, 255);
   cursor: pointer;
   border: none;
-  color:  black;
-  
+  color: black;
 }
 
 .main > * {
