@@ -43,19 +43,24 @@ header {
   margin-right: 10px;
 }
 
-#to-do-container button {
+#add-btn {
   color: white;
-  background-color: blue;
+  background-color: rgb(71, 71, 199);
   border: none;
-  padding: 8px 26px;
+  padding: 1px 8px;
   border-radius: 4px;
   cursor: pointer;
+
   transition: background-color 0.2s;
 }
 
-#to-do-container button:hover {
-  background-color: aqua;
+.delete-btn {
+  background-color: rgb(71, 71, 199);
 }
+
+/* #to-do-container button:hover {
+  background-color: rgb(239, 199, 229);
+} */
 
 #task-list {
   list-style: none;
@@ -68,23 +73,26 @@ ul {
   padding: 0;
 }
 
-#task-list li {
+#task-list {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+#task-list li {
+  margin: 5px 0;
 }
 
-.task-done{
+.task-done {
   text-decoration: line-through;
 }
 
-input[type="checkbox"]::before {
+/* input[type="checkbox"]::before {
   color: white;
 }
 
 input[type="checkbox"]::before::after {
-  color: greenyellow;
-}
+  color: greenyellow; */
+/* } */
 
 #textInput {
   flex-grow: 1;
