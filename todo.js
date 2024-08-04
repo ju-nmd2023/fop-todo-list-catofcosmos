@@ -13,7 +13,6 @@ const taskDone = document.getElementById("task-done");
 // alot of help from chatgpt https://chat.openai.com/share/3a0e8f0b-becc-412c-aff6-1f09ffe15cb9
 // hackr.io https://hackr.io/blog/how-to-create-a-javascript-to-do-list#step-7-saving-to-local-storage-optional
 
-
 function saveToLocalStorage() {
   const tasks = [];
   document.querySelectorAll("#task-list li").forEach((task) => {
@@ -58,14 +57,19 @@ function addTask(task, isCompleted) {
 
   // styles added with chat gpt https://chat.openai.com/share/3a0e8f0b-becc-412c-aff6-1f09ffe15cb9
   const deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "X";
+  deleteBtn.textContent = "🗑️";
   deleteBtn.style.border = "none";
   listItem.appendChild(deleteBtn);
   deleteBtn.style.backgroundColor = "pink";
   deleteBtn.style.padding = "4px 7px 2px 7px";
   deleteBtn.style.borderRadius = "20px";
   deleteBtn.style.cursor = "pointer";
-  
+
+  addBtn.style.backgroundColor = "pink";
+  addBtn.textContent = "+";
+  addBtn.style.fontSize = "16px";
+  addBtn.style.fontWeight = "bold";
+  addBtn.style.color = "white";
 
   taskList.appendChild(listItem);
 
@@ -78,13 +82,12 @@ function addCheckbox(checkBox, taskText, isCompleted) {
   if (isCompleted) {
     taskText.style.textDecoration = "line-through";
   } else {
-    taskText.style.textDecoration ="none";
+    taskText.style.textDecoration = "none";
   }
 
   checkBox.addEventListener("change", function () {
     if (this.checked) {
       taskText.style.textDecoration = "line-through";
-     
     } else {
       taskText.style.textDecoration = "none";
     }
