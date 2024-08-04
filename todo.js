@@ -9,8 +9,11 @@ const textInput = document.getElementById("text-input");
 const taskList = document.getElementById("task-list");
 const addBtn = document.querySelector("#add-btn");
 const deleteBtn = document.querySelector("#delete-btn");
+const taskDone = document.getElementById("task-done");
 // alot of help from chatgpt https://chat.openai.com/share/3a0e8f0b-becc-412c-aff6-1f09ffe15cb9
 // hackr.io https://hackr.io/blog/how-to-create-a-javascript-to-do-list#step-7-saving-to-local-storage-optional
+
+
 function saveToLocalStorage() {
   const tasks = [];
   document.querySelectorAll("#task-list li").forEach((task) => {
@@ -40,6 +43,7 @@ todoContainer.addEventListener("submit", function (event) {
   // this clears the input field
   textInput.value = "";
   addTask(newTask);
+  saveToLocalStorage();
 });
 
 function addTask(task, isCompleted) {
@@ -51,14 +55,17 @@ function addTask(task, isCompleted) {
   const checkBox = document.createElement("input");
   checkBox.setAttribute("type", "checkbox");
   listItem.appendChild(checkBox);
+
   // styles added with chat gpt https://chat.openai.com/share/3a0e8f0b-becc-412c-aff6-1f09ffe15cb9
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "X";
   deleteBtn.style.border = "none";
   listItem.appendChild(deleteBtn);
-  deleteBtn.style.padding = "5px 10px";
-  deleteBtn.style.borderRadius = "5px";
+  deleteBtn.style.backgroundColor = "pink";
+  deleteBtn.style.padding = "4px 7px 2px 7px";
+  deleteBtn.style.borderRadius = "20px";
   deleteBtn.style.cursor = "pointer";
+  
 
   taskList.appendChild(listItem);
 
@@ -68,9 +75,16 @@ function addTask(task, isCompleted) {
 
 function addCheckbox(checkBox, taskText, isCompleted) {
   checkBox.checked = isCompleted;
+  if (isCompleted) {
+    taskText.style.textDecoration = "line-through";
+  } else {
+    taskText.style.textDecoration ="none";
+  }
+
   checkBox.addEventListener("change", function () {
     if (this.checked) {
       taskText.style.textDecoration = "line-through";
+     
     } else {
       taskText.style.textDecoration = "none";
     }
@@ -81,5 +95,6 @@ function addCheckbox(checkBox, taskText, isCompleted) {
 function addDeleteBtn(deleteBtn, listItem) {
   deleteBtn.addEventListener("click", function () {
     taskList.removeChild(listItem);
+    saveToLocalStorage();
   });
 }
