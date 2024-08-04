@@ -65,7 +65,7 @@ function addTask(task, isCompleted) {
   deleteBtn.style.borderRadius = "20px";
   deleteBtn.style.cursor = "pointer";
 
-  addBtn.style.backgroundColor = "pink";
+  addBtn.style.backgroundColor = "lightsteelblue";
   addBtn.textContent = "+";
   addBtn.style.fontSize = "16px";
   addBtn.style.fontWeight = "bold";
