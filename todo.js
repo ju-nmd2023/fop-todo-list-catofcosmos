@@ -1,7 +1,7 @@
 window.addEventListener("load", function loadHandler() {});
 
 // retrieve task from local storage or inicialize empty array
-
+// retry
 let todo = JSON.parse(localStorage.getItem("todo")) || [];
 
 const todoContainer = document.getElementById("to-do-container");
